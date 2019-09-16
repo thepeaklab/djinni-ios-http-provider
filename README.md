@@ -1,2 +1,2 @@
-# djinni-ios-http-provider
+# Djinni HTTP Provoder for iOS written in Swift
 HTTP Provider for Djinni written in Swift
