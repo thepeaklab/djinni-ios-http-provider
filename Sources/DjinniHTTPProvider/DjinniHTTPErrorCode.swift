@@ -9,7 +9,7 @@
 import Foundation
 
 
-public enum DjinniHTTPErrorCode {
+public enum DjinniHTTPErrorCode: Int {
 
     case ok
     case clientError
