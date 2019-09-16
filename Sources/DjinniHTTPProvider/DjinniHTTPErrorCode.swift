@@ -1,5 +1,5 @@
 //
-//  ErrorCode.swift
+//  DjinniHTTPErrorCode.swift
 //  DjinniHTTProvider
 //
 //  Created by Christoph Pageler on 16.09.19.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-public enum ErrorCode {
+public enum DjinniHTTPErrorCode {
 
     case ok
     case clientError

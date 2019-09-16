@@ -11,25 +11,25 @@ import Foundation
 
 public protocol DjinniHTTPProvider {
 
-    func perform(_ request: Request) -> PerformResult
+    func perform(_ request: DjinniHTTPRequest) -> DjinniHTTPPerformResult
 
 }
 
 public extension DjinniHTTPProvider {
 
-    func perform(_ request: Request) -> PerformResult {
+    func perform(_ request: DjinniHTTPRequest) -> DjinniHTTPPerformResult {
         let urlRequest = NSMutableURLRequest(url: URL(string: request.url)!)
         urlRequest.httpMethod = request.method.stringValue()
         urlRequest.allHTTPHeaderFields = request.header
         urlRequest.httpBody = request.body
 
-        var result = PerformResult(response: nil, errorCode: .ok)
+        var result = DjinniHTTPPerformResult(response: nil, errorCode: .ok)
 
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         URLSession.shared.dataTask(with: (urlRequest as URLRequest)) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
-                result = PerformResult(response: nil, errorCode: .parsingError)
+                result = DjinniHTTPPerformResult(response: nil, errorCode: .parsingError)
                 return
             }
 
@@ -38,11 +38,11 @@ public extension DjinniHTTPProvider {
                 return (keyString, valueString)
             })
             let stringHeaders = Dictionary(uniqueKeysWithValues: headerSequence)
-            let response = Response(request: request,
-                                    statusCode: Int16(httpResponse.statusCode),
-                                    header: stringHeaders,
-                                    body: data!)
-            result = PerformResult(response: response, errorCode: .ok)
+            let response = DjinniHTTPResponse(request: request,
+                                              statusCode: Int16(httpResponse.statusCode),
+                                              header: stringHeaders,
+                                              body: data!)
+            result = DjinniHTTPPerformResult(response: response, errorCode: .ok)
 
             dispatchGroup.leave()
         }.resume()

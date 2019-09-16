@@ -1,5 +1,5 @@
 //
-//  Response.swift
+//  DjinniHTTPResponse.swift
 //  DjinniHTTProvider
 //
 //  Created by Christoph Pageler on 16.09.19.
@@ -9,14 +9,14 @@
 import Foundation
 
 
-public class Response {
+public class DjinniHTTPResponse {
 
-    public let request: Request
+    public let request: DjinniHTTPRequest
     public let statusCode: Int16
     public let header: [String: String]
     public let body: Data
 
-    public init(request: Request,
+    public init(request: DjinniHTTPRequest,
                 statusCode: Int16,
                 header: [String: String],
                 body: Data) {
