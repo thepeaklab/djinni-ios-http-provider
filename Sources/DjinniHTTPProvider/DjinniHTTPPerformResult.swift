@@ -12,9 +12,9 @@ import Foundation
 public class DjinniHTTPPerformResult {
 
     public let response: DjinniHTTPResponse?
-    public let errorCode: DjinniHTTPErrorCode?
+    public let errorCode: DjinniHTTPErrorCode
 
-    public init(response: DjinniHTTPResponse?, errorCode: DjinniHTTPErrorCode?) {
+    public init(response: DjinniHTTPResponse?, errorCode: DjinniHTTPErrorCode) {
         self.response = response
         self.errorCode = errorCode
     }
