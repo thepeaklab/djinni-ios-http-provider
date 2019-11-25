@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "DjinniHTTPProvider",
+    name: "djinni-http-provider",
     products: [
         .library(name: "DjinniHTTPProvider", targets: ["DjinniHTTPProvider"]),
     ],
