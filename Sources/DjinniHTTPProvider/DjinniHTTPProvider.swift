@@ -30,6 +30,7 @@ public extension DjinniHTTPProvider {
         URLSession.shared.dataTask(with: (urlRequest as URLRequest)) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 result = DjinniHTTPPerformResult(response: nil, errorCode: .parsingError)
+                dispatchGroup.leave()
                 return
             }
 
