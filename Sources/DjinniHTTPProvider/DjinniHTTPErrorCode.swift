@@ -13,7 +13,7 @@ public enum DjinniHTTPErrorCode: Int {
 
     case ok
     case clientError
-    case ServerError
+    case serverError
     case parsingError
 
 }
