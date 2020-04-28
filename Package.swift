@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "djinni-http-provider",
+    platforms: [
+        .iOS(.v11),
+    ],
     products: [
         .library(name: "DjinniHTTPProvider", targets: ["DjinniHTTPProvider"]),
     ],
